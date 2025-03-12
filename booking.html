@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking - Tourly</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body id="top">
+  <header class="header" data-header>
+    <!-- Header content same as index.html -->
+  </header>
+
+  <main>
+    <article>
+      <section class="booking">
+        <div class="container">
+          <h2 class="h2 section-title">Booking Details</h2>
+
+          <form id="bookingForm" class="booking-form">
+            <!-- Package Details -->
+            <div class="input-wrapper">
+              <label for="packageName" class="input-label">Package Name</label>
+              <input type="text" id="packageName" class="input-field" readonly>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="pricePerPerson" class="input-label">Price Per Person</label>
+              <input type="text" id="pricePerPerson" class="input-field" readonly>
+            </div>
+
+            <!-- Number of People -->
+            <div class="input-wrapper">
+              <label for="numOfPeople" class="input-label">Number of People</label>
+              <input type="number" id="numOfPeople" class="input-field" required min="1" max="10">
+            </div>
+
+            <!-- Booking Date Range -->
+            <div class="input-wrapper">
+              <label for="fromDate" class="input-label">From Date</label>
+              <input type="date" id="fromDate" class="input-field" required>
+            </div>
+
+            <!-- <div class="input-wrapper">
+              <label for="toDate" class="input-label">To Date</label>
+              <input type="date" id="toDate" class="input-field" required>
+            </div> -->
+
+            <div class="input-wrapper">
+              <label class="input-label">To Date</label>
+              <p id="toDateDisplay" class="input-field" style="background-color: #f4f4f4; padding: 10px; border-radius: 5px;">Select a "From Date" to see the "To Date".</p>
+              <input type="hidden" id="toDate" name="toDate"> <!-- Hidden input for form submission -->
+            </div>
+            
+            <!-- Total Amount -->
+            <div class="input-wrapper">
+              <label for="totalAmount" class="input-label">Total Amount</label>
+              <input type="text" id="totalAmount" class="input-field" readonly>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="input-wrapper">
+              <label for="leaderName" class="input-label">Name of Booking Member Leader</label>
+              <input type="text" id="leaderName" class="input-field" required>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="mobileNumber" class="input-label">Mobile Number</label>
+              <input type="tel" id="mobileNumber" class="input-field" required>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="email" class="input-label">Email</label>
+              <input type="email" id="email" class="input-field" required>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="address" class="input-label">Address (Optional)</label>
+              <textarea id="address" class="input-field" rows="3"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <!-- <button type="submit" class="btn btn-primary">Proceed to Payment</button> -->
+          
+            <!-- Add this button to your booking form or receipt page -->
+            <button id="pay-now-btn" class="btn btn-primary">Pay Now</button>
+          </form>
+
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <!-- Footer content same as index.html -->
+  </footer>
+  
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

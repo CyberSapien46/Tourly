@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print receipt</title>
+    <link rel="stylesheet" href="assets/css/receipt.css">
+</head>
+<body>
+    <!-- Receipt Section -->
+
+    <div id="receipt" class="receipt">
+        <h2 class="h2 section-title">Booking Receipt</h2>
+        <div class="receipt-content">
+          <p><strong>Package Name:</strong> <span id="receiptPackageName"></span></p>
+          <p><strong>Price Per Person:</strong> <span id="receiptPricePerPerson"></span></p>
+          <p><strong>Number of People:</strong> <span id="receiptNumOfPeople"></span></p>
+          <p><strong>Total Amount:</strong> <span id="receiptTotalAmount"></span></p>
+          <p><strong>From Date:</strong> <span id="receiptFromDate"></span></p>
+          <p><strong>To Date:</strong> <span id="receiptToDate"></span></p>
+          <p><strong>Leader Name:</strong> <span id="receiptLeaderName"></span></p>
+          <p><strong>Mobile Number:</strong> <span id="receiptMobileNumber"></span></p>
+          <p><strong>Email:</strong> <span id="receiptEmail"></span></p>
+          <p><strong>Address:</strong> <span id="receiptAddress"></span></p>
+          <!-- <p><strong>Payment Method:</strong> <span id="receiptPaymentMethod"></span></p> -->
+        </div>
+        <button class="btn btn-secondary" onclick="window.print()">Print Receipt</button>
+    </div>
+
+      <script>
+      document.addEventListener("DOMContentLoaded", function(){
+
+
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const totalAmount = parseFloat(urlParams.get("totalAmount")) / 100;
+        // document.getElementById("receiptTotalAmount").textContent = `$${totalAmount.toFixed(2)}`;
+        document.getElementById("receiptPackageName").textContent = urlParams.get("packageName")
+        document.getElementById("receiptPricePerPerson").textContent = urlParams.get("pricePerPerson")
+         document.getElementById("receiptPricePerPerson").textContent = `₹${parseFloat(urlParams.get("pricePerPerson")).toFixed(2)}`;
+        document.getElementById("receiptNumOfPeople").textContent = urlParams.get("numOfPeople")
+        // document.getElementById("receiptTotalAmount").textContent = urlParams.get("totalAmount")
+        document.getElementById("receiptTotalAmount").textContent = `₹${totalAmount.toFixed(2)}`; // Display in correct format
+        document.getElementById("receiptLeaderName").textContent = urlParams.get("leaderName")
+        document.getElementById("receiptMobileNumber").textContent = urlParams.get("mobileNumber")
+        document.getElementById("receiptEmail").textContent = urlParams.get("email")
+        document.getElementById("receiptAddress").textContent = urlParams.get("address")
+        document.getElementById("receiptFromDate").textContent = urlParams.get("fromDate")
+        document.getElementById("receiptToDate").textContent =  urlParams.get("toDate")
+        document.getElementById("receiptNumOfPeople").textContent = urlParams.get("numOfPeople")
+
+        
+      });
+      </script>
+</body>
+</html>
